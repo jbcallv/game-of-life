@@ -1,9 +1,12 @@
 #include <SFML/Graphics.hpp>
 #include "Constants.h"
+#include "Grid.h"
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "Game of Life");
+    sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "Game of Life", sf::Style::Titlebar | sf::Style::Close);
+    Grid *grid = new Grid((int) HEIGHT / CELL_HEIGHT, (int) WIDTH / CELL_WIDTH);
+    grid->generateCells();
 
     while (window.isOpen())
     {
@@ -15,6 +18,7 @@ int main()
         }
 
         window.clear(sf::Color::White);
+        grid->Draw(window);
         window.display();
     }
 
