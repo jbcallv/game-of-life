@@ -19,25 +19,27 @@ Grid::~Grid() {
 }
 
 void Grid::Draw(sf::RenderWindow& window) {
-	for (int i = 0; i < cols; ++i) {
-		for (int j = 0; j < rows; ++j) {
-			if (cellGrid[i][j].alive == true) {
-				cellGrid[i][j].cellRect.setFillColor(ALIVE);
-			}
-			else {
-				cellGrid[i][j].cellRect.setFillColor(DEAD);
-			}
-			window.draw(cellGrid[i][j].cellRect);
-			window.draw(cellGrid[i][j].leftWall);
-			window.draw(cellGrid[i][j].topWall);
+	for (int i = 0; i < cols * rows; ++i) {
+		// to avoid a double iterator
+		int x = i / rows;
+		int y = i % rows;
+
+		if (cellGrid[x][y].alive == true) {
+			cellGrid[x][y].cellRect.setFillColor(ALIVE);
 		}
+		else {
+			cellGrid[x][y].cellRect.setFillColor(DEAD);
+		}
+		window.draw(cellGrid[x][y].cellRect);
+		window.draw(cellGrid[x][y].leftWall);
+		window.draw(cellGrid[x][y].topWall);
 	}
 }
 
 void Grid::generateCells() {
-	for (int i = 0; i < cols; ++i) {
-		for (int j = 0; j < rows; ++j) {
-			cellGrid[i][j] = Cell(i, j);
-		}
+	for (int i = 0; i < cols * rows; ++i) {
+		int x = i / rows;
+		int y = i % rows;
+		cellGrid[x][y] = Cell(x, y);
 	}
 }

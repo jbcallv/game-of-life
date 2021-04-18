@@ -2,6 +2,8 @@
 #ifndef CONSTANTS_H
 #define CONSTANTS_H
 
+#include <SFML/Graphics.hpp>
+
 /*
 window stuff
 */

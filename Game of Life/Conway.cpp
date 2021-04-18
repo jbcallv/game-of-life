@@ -4,10 +4,8 @@ Conway::Conway() {
 	// nuhin yet
 }
 
-Cell* Conway::getAdjacent() {
+/*Cell* Conway::getAdjacent() {
+}*/
 
-}
-
-Cell* Conway::getAlive() {
-
-}
+/*Cell* Conway::getAlive() {
+}*/
