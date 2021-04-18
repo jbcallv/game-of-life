@@ -33,6 +33,18 @@ void Grid::Draw(sf::RenderWindow& window) {
 		window.draw(cellGrid[x][y].cellRect);
 		window.draw(cellGrid[x][y].leftWall);
 		window.draw(cellGrid[x][y].topWall);
+		 
+		// draw line on bottom and right of screen
+		sf::RectangleShape btm = sf::RectangleShape(sf::Vector2f(WIDTH, WALL_WIDTH));
+		btm.setFillColor(WALL_COLOR);
+		btm.setPosition(0, HEIGHT - WALL_WIDTH);
+		window.draw(btm);
+
+		// right
+		sf::RectangleShape right = sf::RectangleShape(sf::Vector2f(WALL_WIDTH, HEIGHT));
+		right.setFillColor(WALL_COLOR);
+		right.setPosition(WIDTH - WALL_WIDTH, 0);
+		window.draw(right);
 	}
 }
 
@@ -43,3 +55,8 @@ void Grid::generateCells() {
 		cellGrid[x][y] = Cell(x, y);
 	}
 }
+
+
+// on click change of cells to alive/dead:
+	// if user clicks cell (check with rect.contains(point)),
+	// switch color to opposite of what it is (make method to generate opposite color)

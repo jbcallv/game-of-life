@@ -7,8 +7,8 @@
 /*
 window stuff
 */
-const int HEIGHT = 600;
-const int WIDTH = 1000;
+const int HEIGHT = 602;
+const int WIDTH = 1002;
 
 /*
 cell stuff
