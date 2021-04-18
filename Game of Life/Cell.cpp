@@ -8,7 +8,7 @@ Cell::Cell(int x, int y) {
 	this->x = x;
 	this->y = y;
 	// change this field as neccessary
-	this->alive = true;
+	this->alive = false;
 	this->cellRect = sf::RectangleShape(sf::Vector2f(CELL_WIDTH - WALL_WIDTH, CELL_HEIGHT - WALL_WIDTH));
 	this->cellRect.setFillColor(DEAD);
 	this->cellRect.setPosition(sf::Vector2f(x * CELL_WIDTH + WALL_WIDTH, y * CELL_HEIGHT + WALL_WIDTH));

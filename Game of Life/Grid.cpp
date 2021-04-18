@@ -56,7 +56,15 @@ void Grid::generateCells() {
 	}
 }
 
+void Grid::toggleCell(sf::RenderWindow& window) {
+	sf::Vector2i mousePos = sf::Mouse::getPosition(window);
+	// get row and col for cell
+	int x = (int) mousePos.x / CELL_WIDTH;
+	int y = (int) mousePos.y / CELL_HEIGHT;
 
-// on click change of cells to alive/dead:
-	// if user clicks cell (check with rect.contains(point)),
-	// switch color to opposite of what it is (make method to generate opposite color)
+	cellGrid[x][y].alive = !cellGrid[x][y].alive;
+}
+
+void Grid::stepOneGeneration() {
+
+}

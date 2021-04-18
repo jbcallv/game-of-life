@@ -8,7 +8,7 @@ std::vector<Cell> Conway::getAdjacent(Cell** mazeGrid, Cell cell) {
 	// each cell has 4 neighbors
 	std::vector<Cell> adjacent;
 
-	// only push back cells that exist
+	// only push back cells that exist in the matrix
 	if (cell.getPosX() < WIDTH) adjacent.push_back(mazeGrid[cell.getPosX() + 1][cell.getPosY()]);
 	if (cell.getPosX() > 0) adjacent.push_back(mazeGrid[cell.getPosX() - 1][cell.getPosY()]);
 	if (cell.getPosY() < HEIGHT) adjacent.push_back(mazeGrid[cell.getPosX()][cell.getPosY() + 1]);

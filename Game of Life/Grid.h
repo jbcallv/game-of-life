@@ -5,6 +5,7 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "Cell.h"
+#include "Conway.h"
 
 class Grid {
 public:
@@ -35,9 +36,21 @@ public:
 	*/
 	void generateCells();
 
+	/*
+	handles mouse input
+	*/
+	void toggleCell(sf::RenderWindow& window);
+
+	/*
+	takes a single step in the generations of GOL
+	*/
+	void stepOneGeneration();
+
 private:
 	// rows and columns in maze
 	int rows;
 	int cols;
+
+	Conway conway;
 };
 #endif
