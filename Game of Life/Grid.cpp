@@ -91,9 +91,9 @@ void Grid::stepOneGeneration() {
 		}
 	}
 
-	for (int l = 0; l < cols; ++l) {
-		for (int p = 0; p < rows; ++p) {
-			this->cellGrid[l][p] = nextGen.at(l).at(p);
-		}
+	for (int l = 0; l < cols * rows; ++l) {
+		int x = l / rows;
+		int y = l % rows;
+		this->cellGrid[x][y] = nextGen.at(x).at(y);
 	}
 }
