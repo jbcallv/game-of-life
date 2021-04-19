@@ -15,12 +15,12 @@ public:
 	/*
 	returns an array of all neighboring cells
 	*/
-	std::vector<Cell> getAdjacent(Cell** mazeGrid, Cell cell);
+	std::vector<Cell> getAdjacent(Cell** cellGrid, Cell cell);
 
 	/*
 	returns alive adjacent cells
 	*/
-	std::vector<Cell> getAlive(std::vector<Cell> adjacent);
+	int getAlive(std::vector<Cell> adjacent);
 
 private:
 };
