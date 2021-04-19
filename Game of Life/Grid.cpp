@@ -66,7 +66,7 @@ void Grid::toggleCell(sf::RenderWindow& window) {
 }
 
 void Grid::stepOneGeneration() {
-	// get all adjacent cells that are alive
+	// declare new generation
 	std::vector<std::vector<Cell>> nextGen;
 
 	for (int k = 0; k < cols; ++k) {
@@ -80,15 +80,13 @@ void Grid::stepOneGeneration() {
 	for (int i = 0; i < cols * rows; ++i) {
 		int x = i / rows;
 		int y = i % rows;
+		// get all adjacent cells that are alive
 		int alive = conway.getAlive(conway.getAdjacent(cellGrid, cellGrid[x][y]));
 
 		if (cellGrid[x][y].alive && (alive == 2 || alive == 3)) {
-			//cellGrid[x][y].alive = true;
 			nextGen.at(x).at(y).alive = true;
-			//std::cout << x << ", " << y << std::endl;
 		}
 		else if (!cellGrid[x][y].alive && alive == 3) {
-			//cellGrid[x][y].alive = false;
 			nextGen[x][y].alive = true;
 		}
 	}
@@ -98,5 +96,4 @@ void Grid::stepOneGeneration() {
 			this->cellGrid[l][p] = nextGen.at(l).at(p);
 		}
 	}
-	//this->cellGrid = nextGen;
 }
