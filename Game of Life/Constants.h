@@ -13,8 +13,8 @@ const int WIDTH = 1002;
 /*
 cell stuff
 */
-const int CELL_HEIGHT = 20;
-const int CELL_WIDTH = 20;
+const int CELL_HEIGHT = 50;
+const int CELL_WIDTH = 50;
 const int WALL_WIDTH = 2;
 
 /*

@@ -23,9 +23,13 @@ int main()
                 }
             }
             if (event.type == sf::Event::KeyPressed) {
-                if (event.key.code == sf::Keyboard::Space) {
+                if (event.key.code == sf::Keyboard::S) {
+                    // start
                     ready = true;
-                    //grid->stepOneGeneration();
+                }
+                if (event.key.code == sf::Keyboard::P) {
+                    // pause
+                    ready = false;
                 }
             }
         }
@@ -35,7 +39,6 @@ int main()
         if (ready) {
             grid->stepOneGeneration();
         }
-        //grid->stepOneGeneration();
         window.display();
     }
 
